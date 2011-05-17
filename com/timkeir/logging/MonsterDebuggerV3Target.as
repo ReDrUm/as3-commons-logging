@@ -91,7 +91,7 @@ package com.timkeir.logging
         }
         
         /**
-         * @inheritDoc
+         * @see http://www.as3commons.org/as3-commons-logging/asdoc/org/as3commons/logging/setup/target/IFormattingLogTarget.html#format
          */
         public function set format(format:String):void
         {
