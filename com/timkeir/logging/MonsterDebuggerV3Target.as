@@ -219,45 +219,45 @@ package com.timkeir.logging
 		    // Check for default params attached to class (unless overriden above)
 		    if(!md3Params && defaultParams[name] != undefined)
 		    {
-		    	md3Params = defaultParams[name];
-		    	person = md3Params.person;
-		    	label = md3Params.label;
-		    	if(md3Params.color != -1)
-		    	{
-		    		color = md3Params.color;
-		    	}
-		    	depth = md3Params.depth;
-		    	log = md3Params.log;
+				md3Params = defaultParams[name];
+				person = md3Params.person;
+				label = md3Params.label;
+				if(md3Params.color != -1)
+				{
+					color = md3Params.color;
+				}
+				depth = md3Params.depth;
+				log = md3Params.log;
 		    }
 		    
 		    // Remove params object if set
 		    md3Params = null;
 		    
-		    // Enhanced trace via MonsterDebugger console
-		    if(!log)
-		    {
-		    	if(message is String)
-			    {
-			    	MonsterDebugger.trace(name, _formatter.format(name, shortName, level, timeStamp, message, parameters), person, label, color, depth);
-			    	return;
-			    }
-			    MonsterDebugger.trace(name, message, person, label, color, depth);
-		    }
+			// Enhanced trace via MonsterDebugger console
+			if(!log)
+			{
+				if(message is String)
+				{
+					MonsterDebugger.trace(name, _formatter.format(name, shortName, level, timeStamp, message, parameters), person, label, color, depth);
+					return;
+				}
+				MonsterDebugger.trace(name, message, person, label, color, depth);
+			}
 		    // Classic trace via MonsterDebugger console
 		    else
 		    {
 		    	if(message is String)
 		    	{
-		    		if(parameters.length > 0)
-		    		{
+					if(parameters.length > 0)
+					{
 		    			MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters), parameters);
 		    			return;
 		    		}
 		    		// Dont pass in paramters if empty. This prevents an unneccessary comma at end of statement.
 		    		MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters));
 		    		return;
-		    	}
-		    	parameters.length > 0 ? MonsterDebugger.log(message, parameters) : MonsterDebugger.log(message);
+				}
+				parameters.length > 0 ? MonsterDebugger.log(message, parameters) : MonsterDebugger.log(message);
 		    }
 		}
 	}
