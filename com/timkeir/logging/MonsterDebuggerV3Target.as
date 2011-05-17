@@ -26,19 +26,20 @@ package com.timkeir.logging
 	 */
 	public final class MonsterDebuggerV3Target extends Object implements IFormattingLogTarget
 	{
-        /** Default output format used to stringify log statements via MonsterDebugger.trace(). */
-        public static const DEFAULT_FORMAT:String = "{message}";
-        /** Default output format used to stringify log statements via MonsterDebugger.log(). */
-        public static const CLASSIC_FORMAT:String = "{shortName} - {message}";
-        
+		/** Default output format used to stringify log statements via MonsterDebugger.trace(). */
+		public static const DEFAULT_FORMAT:String = "{message}";
+		
+		/** Default output format used to stringify log statements via MonsterDebugger.log(). */
+		public static const CLASSIC_FORMAT:String = "{shortName} - {message}";
+
         /** Default colors used to color the output statements. */
         public static const DEFAULT_COLORS:Dictionary = new Dictionary();
         {
-			DEFAULT_COLORS[DEBUG] = 0x0030AA;
-			DEFAULT_COLORS[FATAL] = 0xAA0000;
-			DEFAULT_COLORS[ERROR] = 0xFF0000;
-			DEFAULT_COLORS[INFO] = 0x666666;
-			DEFAULT_COLORS[WARN] = 0xff7700;
+        	DEFAULT_COLORS[DEBUG] = 0x0030AA;
+        	DEFAULT_COLORS[FATAL] = 0xAA0000;
+        	DEFAULT_COLORS[ERROR] = 0xFF0000;
+        	DEFAULT_COLORS[INFO] = 0x666666;
+        	DEFAULT_COLORS[WARN] = 0xff7700;
         }
         
         /** Colors used to display the messages. */
@@ -122,9 +123,9 @@ package com.timkeir.logging
          */
         public function addClassDefaultParams(target:Class, params:MonsterDebuggerV3Params):void
         {
-			var className:String = toLogName(target);
-			defaultParams[className] = params;
-		}
+        	var className:String = toLogName(target);
+        	defaultParams[className] = params;
+        }
         
         /**
          * Remove default Params from a specific class.
@@ -142,14 +143,14 @@ package com.timkeir.logging
          */
         public function removeClassDefaultParams(target:Class):void
         {
-			var className:String = toLogName(target);
-			if(defaultParams[className] != undefined)
-			{
-	        	defaultParams[className] = null;
-	        	delete defaultParams[className];
+        	var className:String = toLogName(target);
+        	if(defaultParams[className] != undefined)
+        	{
+        		defaultParams[className] = null;
+        		delete defaultParams[className];
         	}
         }
-                    
+        
         /**
          * Renders a log statement.
          * 
@@ -235,7 +236,7 @@ package com.timkeir.logging
             // Enhanced trace via MonsterDebugger console
             if(!log)
             {
-	        	if(message is String)
+            	if(message is String)
 	            {
 	            	MonsterDebugger.trace(name, _formatter.format(name, shortName, level, timeStamp, message, parameters), person, label, color, depth);
 	            	return;
