@@ -123,6 +123,7 @@ package com.timkeir.logging
         	var className:String = toLogName(target);
         	defaultParams[className] = params;
         }
+        
         /**
          * Remove default Params from a specific class.
          * 
@@ -167,6 +168,9 @@ package com.timkeir.logging
          * </listing>
          * 
          * @see com.timkeir.logging.MonsterDebuggerV3Params
+         * 
+         * @see http://demonsterdebugger.com/asdoc/com/demonsters/debugger/MonsterDebugger.html#trace()
+         * @see http://demonsterdebugger.com/asdoc/com/demonsters/debugger/MonsterDebugger.html#log()
          * 
          * @param name Name of the logger that triggered the log statement.
          * @param shortName Shortened form of the name.
