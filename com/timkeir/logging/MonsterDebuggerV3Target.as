@@ -80,7 +80,7 @@ package com.timkeir.logging
          *     colors[WARN] = 0xFF0000;
          *     colors[ERROR] = 0x0000FF;
          *     colors[FATAL] = 0xFFFF00;
-         *     monsterDebuggerV3Target.colors = colors;
+         *     MONSTER_DEBUGGER_V3_TARGET.colors = colors;
          * </listing>
          */
         public function get colors():Dictionary {
