@@ -184,41 +184,40 @@ package com.timkeir.logging
 		 */
 		public function log(name:String, shortName:String, level:LogLevel, timeStamp:Number, message:*, parameters:Array):void
 		{
-		    var md3Params:MonsterDebuggerV3Params;
-		    var person:String = "";
-		    var label:String = "";
-		    var color:int = _colors[level];
-		    var depth:int = 5;
-		    var log:Boolean = false;
-		    
-		    // Check for Monster Debugger specific parameters
-		    paramsLoop : for each(var value:* in parameters)
-		    {
-		    	if(value is MonsterDebuggerV3Params)
-		    	{
-		    		md3Params = value;
-		    		person = md3Params.person;
-		    		label = md3Params.label;
-		    		depth = md3Params.depth;
-		    		log = md3Params.log;
-		    		
-		    		// Only set colour if specified, defaults to this.colors
-		    		if(md3Params.color != -1)
-		    		{
-		    			color = md3Params.color;
-		    		}
-		    		
-		    		// Remove once set to prevent it showing up in a classic trace if log is true.
-		    		parameters.splice(parameters.indexOf(value), 1);
-		
-		    		break paramsLoop;
-		    	}
-		    	
-		    }
-		    
-		    // Check for default params attached to class (unless overriden above)
-		    if(!md3Params && defaultParams[name] != undefined)
-		    {
+			var md3Params:MonsterDebuggerV3Params;
+			var person:String = "";
+			var label:String = "";
+			var color:int = _colors[level];
+			var depth:int = 5;
+			var log:Boolean = false;
+
+			// Check for Monster Debugger specific parameters
+			paramsLoop : for each(var value:* in parameters)
+			{
+				if(value is MonsterDebuggerV3Params)
+				{
+					md3Params = value;
+					person = md3Params.person;
+					label = md3Params.label;
+					depth = md3Params.depth;
+					log = md3Params.log;
+					
+					// Only set colour if specified, defaults to this.colors
+					if(md3Params.color != -1)
+					{
+						color = md3Params.color;
+					}
+					
+					// Remove once set to prevent it showing up in a classic trace if log is true.
+					parameters.splice(parameters.indexOf(value), 1);
+						
+					break paramsLoop;
+				}
+			}
+
+			// Check for default params attached to class (unless overriden above)
+			if(!md3Params && defaultParams[name] != undefined)
+			{
 				md3Params = defaultParams[name];
 				person = md3Params.person;
 				label = md3Params.label;
@@ -228,11 +227,11 @@ package com.timkeir.logging
 				}
 				depth = md3Params.depth;
 				log = md3Params.log;
-		    }
-		    
-		    // Remove params object if set
-		    md3Params = null;
-		    
+			}
+
+			// Remove params object if set
+			md3Params = null;
+
 			// Enhanced trace via MonsterDebugger console
 			if(!log)
 			{
@@ -243,22 +242,22 @@ package com.timkeir.logging
 				}
 				MonsterDebugger.trace(name, message, person, label, color, depth);
 			}
-		    // Classic trace via MonsterDebugger console
-		    else
-		    {
-		    	if(message is String)
-		    	{
+			// Classic trace via MonsterDebugger console
+			else
+			{
+				if(message is String)
+				{
 					if(parameters.length > 0)
 					{
-		    			MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters), parameters);
-		    			return;
-		    		}
-		    		// Dont pass in paramters if empty. This prevents an unneccessary comma at end of statement.
-		    		MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters));
-		    		return;
+						MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters), parameters);
+						return;
+					}
+					// Dont pass in paramters if empty. This prevents an unneccessary comma at end of statement.
+					MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters));
+					return;
 				}
 				parameters.length > 0 ? MonsterDebugger.log(message, parameters) : MonsterDebugger.log(message);
-		    }
+			}
 		}
 	}
 }
