@@ -24,6 +24,10 @@ package com.timkeir.logging
 		/**
 		 *	A Value Object to be mapped to the optional parameters within a MonsterDebugger trace statement.
 		 *	
+		 *	NOTE: If setting log to true all other MonsterDebuggerV3Params will be ignored. See the official
+		 *	Monster Debugger docs for more details.
+		 *	@see http://demonsterdebugger.com/asdoc/com/demonsters/debugger/MonsterDebugger.html#log()
+		 *	
 		 *	@param person The name of the developer triggering the trace statement. Used for filtering.
 		 *	@param label A custom label used for filtering. e.g. The name of the feature you're debugging.
 		 *	@param color The colour the trace statement is to appear within MonsterDebugger.

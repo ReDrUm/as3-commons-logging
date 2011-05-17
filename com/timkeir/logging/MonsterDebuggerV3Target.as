@@ -192,15 +192,21 @@ package com.timkeir.logging
             		md3Params = value;
             		person = md3Params.person;
             		label = md3Params.label;
+            		depth = md3Params.depth;
+            		log = md3Params.log;
+            		
             		// Only set colour if specified, defaults to this.colors
             		if(md3Params.color != -1)
             		{
             			color = md3Params.color;
             		}
-            		depth = md3Params.depth;
-            		log = md3Params.log;
+            		
+            		// Remove once set to prevent it showing up in a classic trace if log is true.
+            		parameters.splice(parameters.indexOf(value), 1);
+
             		break paramsLoop;
             	}
+            	
             }
             
             // Check for default params attached to class (unless overriden above)
@@ -235,10 +241,16 @@ package com.timkeir.logging
             {
             	if(message is String)
             	{
-            		MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters), parameters);
+            		if(parameters.length > 0)
+            		{
+            			MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters), parameters);
+            			return;
+            		}
+            		// Dont pass in paramters if empty. This prevents an unneccessary comma at end of statement.
+            		MonsterDebugger.log(_classicFormatter.format(name, shortName, level, timeStamp, message, parameters));
             		return;
             	}
-            	MonsterDebugger.log(message, parameters);
+            	parameters.length > 0 ? MonsterDebugger.log(message, parameters) : MonsterDebugger.log(message);
             }
         }
 	}

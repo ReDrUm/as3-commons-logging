@@ -8,10 +8,13 @@ It is based on [MonsterDebuggerTarget](http://code.google.com/p/as3-commons/sour
 These classes provide a way to utilise some of the new features introduced in Monster Debugger 3 such as the ability to filter trace statements via the Person or Label columns.
 The MonsterDebuggerV3Params class is used to define these. You can pass in individual instances per log statement, or alternatively set a default for each class. See the Example for more details.
 
-Example
+Examples
 -------------------------
 
-* [Example Implementation](https://github.com/ReDrUm/as3-commons-logging/blob/master/example/)
+* [Simple Implementation](https://github.com/ReDrUm/as3-commons-logging/blob/master/example/SimpleExample.as)
+* [Using Default Class Parameters](https://github.com/ReDrUm/as3-commons-logging/blob/master/example/DefaultClassParamsExample.as)
+* [Classic Trace](https://github.com/ReDrUm/as3-commons-logging/blob/master/example/ClassicTraceExample.as)
+
 
 References
 -------------------------
