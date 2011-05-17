@@ -13,17 +13,17 @@ package com.timkeir.logging
 	import org.as3commons.logging.util.toLogName;
 
 	/**
-     * <code>MonsterDebuggerV3Target</code> logs directly to the Monster Debugger 3 Traces console.
-     * 
-     * <p>The Monster Debugger is an alternative way to display your logging statements.</p>
-     * 
-     *  @see http://demonsterdebugger.com
-	 *	@see http://www.as3commons.org/as3-commons-logging
-     * 
-     * @author Tim Keir. Based on Martin Heidegger's org.as3commons.logging.setup.target.MonsterDebuggerTarget.
-     * @created 16/05/2011
-     * @since 2.0
-     */
+	 * <code>MonsterDebuggerV3Target</code> logs directly to the Monster Debugger 3 Traces console.
+	 * 
+	 * <p>The Monster Debugger is an alternative way to display your logging statements.</p>
+	 * 
+	 * @see http://demonsterdebugger.com@author tim.keir
+	 * @see http://www.as3commons.org/as3-commons-logging
+	 *  
+	 * @author Tim Keir. Based on Martin Heidegger's org.as3commons.logging.setup.target.MonsterDebuggerTarget.
+	 * @created 16/05/2011
+	 * @since 2.0
+	 */
 	public final class MonsterDebuggerV3Target extends Object implements IFormattingLogTarget
 	{
         /** Default output format used to stringify log statements via MonsterDebugger.trace(). */
