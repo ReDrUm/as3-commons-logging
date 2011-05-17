@@ -34,11 +34,11 @@ package com.timkeir.logging
         /** Default colors used to color the output statements. */
         public static const DEFAULT_COLORS:Dictionary = new Dictionary();
         {
-                DEFAULT_COLORS[DEBUG] = 0x0030AA;
-                DEFAULT_COLORS[FATAL] = 0xAA0000;
-                DEFAULT_COLORS[ERROR] = 0xFF0000;
-                DEFAULT_COLORS[INFO] = 0x666666;
-                DEFAULT_COLORS[WARN] = 0xff7700;
+			DEFAULT_COLORS[DEBUG] = 0x0030AA;
+			DEFAULT_COLORS[FATAL] = 0xAA0000;
+			DEFAULT_COLORS[ERROR] = 0xFF0000;
+			DEFAULT_COLORS[INFO] = 0x666666;
+			DEFAULT_COLORS[WARN] = 0xff7700;
         }
         
         /** Colors used to display the messages. */
@@ -59,10 +59,10 @@ package com.timkeir.logging
          * @param colors Default colors used to color log statements.
          */
         public function MonsterDebuggerV3Target(format:String = null, colors:Dictionary = null)
-        {	
+		{
 			this.format = format||DEFAULT_FORMAT;
 			this.colors = colors||DEFAULT_COLORS;
-        }
+		}
         
         /**
          * The colors used to to send the log statement.
@@ -83,10 +83,12 @@ package com.timkeir.logging
          *     MONSTER_DEBUGGER_V3_TARGET.colors = colors;
          * </listing>
          */
-        public function get colors():Dictionary {
+        public function get colors():Dictionary
+        {
                 return _colors;
         }
-        public function set colors(colors:Dictionary):void {
+        public function set colors(colors:Dictionary):void
+        {
                 _colors = colors||DEFAULT_COLORS;
         }
         
@@ -120,9 +122,9 @@ package com.timkeir.logging
          */
         public function addClassDefaultParams(target:Class, params:MonsterDebuggerV3Params):void
         {
-        	var className:String = toLogName(target);
-        	defaultParams[className] = params;
-        }
+			var className:String = toLogName(target);
+			defaultParams[className] = params;
+		}
         
         /**
          * Remove default Params from a specific class.
@@ -140,9 +142,9 @@ package com.timkeir.logging
          */
         public function removeClassDefaultParams(target:Class):void
         {
-        	var className:String = toLogName(target);
-        	if(defaultParams[className] != undefined)
-        	{
+			var className:String = toLogName(target);
+			if(defaultParams[className] != undefined)
+			{
 	        	defaultParams[className] = null;
 	        	delete defaultParams[className];
         	}
