@@ -25,10 +25,10 @@
 			// Init Logger Target
 			LOGGER_FACTORY.setup = new SimpleTargetSetup(MONSTER_DEBUGGER_V3_TARGET);
 			
-			// Log some more
+			// Simple trace
 			logger.debug("This is a standard trace which won't make use of the Person or Label filters available in Monster Debugger 3.");
 			
-			// Default params can be overridden for single log statements
+			// Enhances trace
 			logger.debug("This is an enhanced trace utilising the Person and Label filters and a custom color", new MonsterDebuggerV3Params("User", "Label", 0xCC0000));
 		}
 	}
