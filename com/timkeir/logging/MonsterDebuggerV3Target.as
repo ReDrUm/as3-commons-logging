@@ -1,4 +1,4 @@
-package com.timkeir.logging
+﻿package com.timkeir.logging
 {
 	import com.demonsters.debugger.MonsterDebugger;
 	import flash.utils.Dictionary;
@@ -17,7 +17,7 @@ package com.timkeir.logging
 	 * 
 	 * <p>The Monster Debugger is an alternative way to display your logging statements.</p>
 	 * 
-	 * @see http://demonsterdebugger.com@author tim.keir
+	 * @see http://demonsterdebugger.com
 	 * @see http://www.as3commons.org/as3-commons-logging
 	 *  
 	 * @author Tim Keir. Based on Martin Heidegger's org.as3commons.logging.setup.target.MonsterDebuggerTarget.
